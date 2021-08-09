@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 // const PrimeraApp = (props) => {
 // const PrimeraApp = ({ saludo="Valor por defecto" }) => {
-const PrimeraApp = ({ saludo,subtitulo }) => {
+const PrimeraApp = ({ saludo, subtitulo }) => {
 
     return (
         <>
-            <h1> {saludo}</h1 >
-            <h1> {subtitulo}</h1 >
+            <h1> {saludo} !!!</h1 >
+            <h1 id="idSubtitulo">{subtitulo}</h1 >
             <p> Parrago de mi div</p>
         </>
 
@@ -20,8 +20,8 @@ PrimeraApp.propTypes = {
     subtitulo: PropTypes.string
 }
 
-PrimeraApp.defaultProps ={
-    subtitulo: "Soy un sibtitulo"
+PrimeraApp.defaultProps = {
+    subtitulo: "Soy un subtitulo"
 }
 
 export default PrimeraApp;

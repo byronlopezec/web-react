@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const CounterApp = ({ value = 10 }) => {
+const CounterApp = ({ value = 100 }) => {
 
     // const handleAdd = (e) => console.log(e);
     const handleAdd = (e) => console.log(e);
@@ -39,13 +39,13 @@ const CounterApp = ({ value = 10 }) => {
     return (
         <>
             <h1>CounterApp</h1>
-            <h1>{counter}</h1>
+            <h1  >{counter}</h1>
             <button onClick={handleAdd3}> +1  </button>
             <button onClick={handleAdd}> +3 </button>
             <button onClick={handleAdd2()}> +2 </button>
             <br />
             <h1>Ejercicio count</h1>
-            <h1>{count}</h1>
+            <h1 id="idCounter">{count}</h1>
             <button onClick={handlePlus}> +1  </button>
             <button onClick={handleReset}> Reset  </button>
             <button onClick={handleSubtract}> -1  </button>
