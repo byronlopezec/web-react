@@ -46,9 +46,9 @@ const CounterApp = ({ value = 100 }) => {
             <br />
             <h1>Ejercicio count</h1>
             <h1 id="idCounter">{count}</h1>
-            <button onClick={handlePlus}> +1  </button>
-            <button onClick={handleReset}> Reset  </button>
-            <button onClick={handleSubtract}> -1  </button>
+            <button id="btnPlus" onClick={handlePlus}> +1  </button>
+            <button id="btnReset" onClick={handleReset}> Reset  </button>
+            <button id="btnSubtract" onClick={handleSubtract}> -1  </button>
 
         </>
     )
