@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { GifGridItem } from './GifGridItem';
 
 const GifGrid = ({ category }) => {
 
-
-    const [count, setCount] = useState(0);
+    const [images, setImages] = useState([]);
 
     useEffect(() => {
         dataGifAPI();
@@ -15,7 +15,7 @@ const GifGrid = ({ category }) => {
         const resp = await fetch('https://api.giphy.com/v1/gifs/search?q=Rick&limit=10&api_key=' + api_key);
         const { data } = await resp.json()
 
-        const dataCatagories = data.map((item) => {
+        const imgs = data.map((item) => {
             return {
                 id: item.id,
                 title: item.title,
@@ -23,15 +23,15 @@ const GifGrid = ({ category }) => {
 
             }
         })
-        console.log(dataCatagories);
+        setImages(imgs);
     }
 
     return (
         <div>
             <h2>{category}</h2>
-            <h3>{count}</h3>
-            <button onClick={() => { setCount(c => c + 1) }}></button>
-
+            {
+                images.map((img) => <GifGridItem key={img.id} {...img} />) // pasamos todos las propiedades incluido img
+            }
         </div>
     )
 }
