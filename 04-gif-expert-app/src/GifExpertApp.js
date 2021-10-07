@@ -4,7 +4,7 @@ import GifGrid from './components/GifGrid';
 
 export const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['One-Punch']);
+    const [categories, setCategories] = useState(['One Punch']);
 
     // const handleAdd = (e) => {
     //     // setCategories([...categories, 'Mazinger-Z']);
@@ -13,7 +13,7 @@ export const GifExpertApp = () => {
 
     return (
         <>
-            <h2>Git Expert App</h2>
+            <h2>Gif Expert App</h2>
             <hr />
             {/* <button onClick={handleAdd}>Agregar</button> */}
             <AddCategory setCategories={setCategories} />

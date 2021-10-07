@@ -1,38 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { GifGridItem } from './GifGridItem';
+import { dataGifAPI } from '../helpers/getGifs';
 
 const GifGrid = ({ category }) => {
 
     const [images, setImages] = useState([]);
 
+    // se ejecuta solo una vez y no renderiza nuevamente todo el componente
     useEffect(() => {
-        dataGifAPI();
-    }, [])
 
-    const dataGifAPI = async () => {
-        const api_key = 'IeSlcE9JlBLhzpNlK7PPFQHfkvcg0mjY';
-        const resp = await fetch('https://api.giphy.com/v1/gifs/search?q=Rick&limit=10&api_key=' + api_key);
-        const { data } = await resp.json()
-
-        const imgs = data.map((item) => {
-            return {
-                id: item.id,
-                title: item.title,
-                url: item.images?.downsized_medium.url,
-
-            }
-        })
-        setImages(imgs);
-    }
+        dataGifAPI({ category }).then((imgs => { 
+            setImages(imgs);
+        }));
+    }, [category]);
+// add category becouse if category changes then useEffect needs to change
 
     return (
-        <div>
+
+        <>
             <h2>{category}</h2>
-            {
-                images.map((img) => <GifGridItem key={img.id} {...img} />) // pasamos todos las propiedades incluido img
-            }
-        </div>
+            <div className="card-grid">
+                {
+                    images.map((img) => <GifGridItem key={img.id} {...img} />) // pasamos todos las propiedades incluido img
+                }
+            </div>
+        </>
     )
 }
 
