@@ -13,7 +13,7 @@ const GifGrid = ({ category }) => {
             <h2>{category}</h2>
             {loading && <p>Cargando...</p>}
 
-            <div className="card-grid">
+            <div className="card-grid animate__fadeIn">
                 {
                     images.map((img) => <GifGridItem key={img.id} {...img} />) // pasamos todos las propiedades incluido img
                 }
