@@ -1,19 +1,19 @@
-import { useState } from "react/cjs/react.development"
+import { useEffect, useState } from "react";
+import { dataGifAPI } from "../helpers/getGifs";
 
-export const useFectchGifs = () => {
+export const useFectchGifs = ({ category }) => {
 
-    const [state, setState] = useState({
-        data: [],
-        loading: true
-    });
+    const [state, setState] = useState({data: [], loading: true});
 
-    setTimeout(() => {
+    // se ejecuta solo una vez y no renderiza nuevamente todo el componente
+    useEffect(() => {
 
-        setState({
-            data: [1, 2, 3, 4, 5, 6],
-            loading: false
-        })
-    },3000)
+        dataGifAPI({ category }).then((imgs => {
+            setState({ data: imgs, loading: false });
+        }));
+
+    }, [category]);
+    // add category becouse if category changes then useEffect needs to change
 
     return state;
 }
