@@ -7,13 +7,17 @@ export const AddCategory = ({ setCategories }) => {
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
+
+        console.log('handleInputChange changed')
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        console.log('handleSubmit')
+
         if (inputValue.trim().length > 1) {
-            setCategories(categories => [inputValue,...categories])
+            setCategories(categories => [inputValue, ...categories])
             setInputValue('');
         }
     }
@@ -21,6 +25,7 @@ export const AddCategory = ({ setCategories }) => {
     return (
         // <> no es necesario el fragment ya que form sirve de fragmentador o agrupador
         <form onSubmit={handleSubmit}>
+            <p>{inputValue}</p>
             {/* <h2>{inputValue}</h2> */}
             <input type='text' value={inputValue} onChange={handleInputChange}></input>
         </form>
