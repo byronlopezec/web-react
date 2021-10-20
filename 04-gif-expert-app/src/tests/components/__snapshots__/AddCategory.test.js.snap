@@ -4,13 +4,11 @@ exports[`Probar componente add category deberia mostrar el componente addcategor
 <form
   onSubmit={[Function]}
 >
-  <p>
-    Ingrese texto
-  </p>
+  <p />
   <input
     onChange={[Function]}
     type="text"
-    value="Ingrese texto"
+    value=""
   />
 </form>
 `;

@@ -3,18 +3,14 @@ import PropTypes from 'prop-types'
 
 export const AddCategory = ({ setCategories }) => {
 
-    const [inputValue, setInputValue] = useState('Ingrese texto');
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-
-        console.log('handleInputChange changed')
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log('handleSubmit')
 
         if (inputValue.trim().length > 1) {
             setCategories(categories => [inputValue, ...categories])
