@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Probar componente add category debe mostrar items cuando se cargan imageenes de usefetchGifs 1`] = `
+<Fragment>
+  <h2>
+    One punch
+  </h2>
+  <p>
+    Cargando...
+  </p>
+  <div
+    className="card-grid animate__fadeIn"
+  >
+    <GifGridItem
+      id={1}
+      key="1"
+      title="imagen 1"
+      url="http.localhost.com/image1.png"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Probar componente add category deberia mostrar el componente GifGrid 1`] = `
+<Fragment>
+  <h2>
+    One punch
+  </h2>
+  <p>
+    Cargando...
+  </p>
+  <div
+    className="card-grid animate__fadeIn"
+  />
+</Fragment>
+`;
