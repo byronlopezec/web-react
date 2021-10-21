@@ -11,7 +11,7 @@ describe('Probar componente add category', () => {
 
     test('deberia mostrar el componente GifGrid', () => {
         useFectchGifs.mockReturnValue({
-            data: [], loading: true
+            data: [], loading: false
         })
         const wrapper = shallow(<GifGrid category={category} />);
         expect(wrapper).toMatchSnapshot();
@@ -25,10 +25,13 @@ describe('Probar componente add category', () => {
             title: 'imagen 1'
         }];
         useFectchGifs.mockReturnValue({
-            data: gifs, loading: true
+            data: gifs, loading: false
         })
         const wrapper = shallow(<GifGrid category={category} />);
-        expect(wrapper).toMatchSnapshot()
+        // expect(wrapper).toMatchSnaupshot()
+        expect(wrapper.find('p').exists()).toBe(false);
+        expect(wrapper.find('GifGridItem').length).toBe(gifs.length)
+
 
     })
 
