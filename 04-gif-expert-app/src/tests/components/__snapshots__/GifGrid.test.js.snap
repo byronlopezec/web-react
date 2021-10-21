@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Probar componente add category deberia mostrar el componente GifGrid 1`] = `
+<Fragment>
+  <h2>
+    One punch
+  </h2>
+  <div
+    className="card-grid animate__fadeIn"
+  />
+</Fragment>
+`;
