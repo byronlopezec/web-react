@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react/cjs/react.development'
 import './effect.css'
+import { Message } from './Message';
 
 export const SimpleForm = () => {
 
@@ -17,17 +18,17 @@ export const SimpleForm = () => {
     // entonces colocamos en el arreglo de dependencias de use effect un arreglo vacío []
 
     useEffect(() => {
-        console.log('Hey!!!')
+        // console.log('Hey!!!')s
     }, []);
 
     //ejecutamos algo cuando el form cambia!!!...
     useEffect(() => {
-        console.log('Form Cambió')
+        // console.log('Form Cambió')s
     }, [form])
 
     // Podemos ejecutar algo cuando email cambia
     useEffect(() => {
-        console.log('Email Cambio')
+        // console.log('Email Cambio')s
 
     }, [email])
 
@@ -64,6 +65,7 @@ export const SimpleForm = () => {
                 />
             </div>
 
+            {name === '123' && <Message />}
         </>
     )
 }
