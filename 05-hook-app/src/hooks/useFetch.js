@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 
 export const useFetch = (url) => {
 
+    //Controlar que el componente está montado o no
+    const isMounted = useRef(true);
     const [state, setState] = useState({ error: null, data: '', loading: true, })
 
+    useEffect(() => {
+        return () => {
+            isMounted.current = false;
+        }
+    }, [])
 
     useEffect(() => {
 
@@ -16,11 +23,18 @@ export const useFetch = (url) => {
             .then(resp => resp.json())
             .then((data) => {
 
-                setState({
-                    data,
-                    loading: false,
-                    error: null
-                })
+                setTimeout(() => {
+
+                    if (isMounted.current) {
+                        setState({
+                            data,
+                            loading: false,
+                            error: null
+                        })
+                    }else{
+                        console.log("Se previno el setState")
+                    }
+                }, 4000);
             })
     }, [url])
 
