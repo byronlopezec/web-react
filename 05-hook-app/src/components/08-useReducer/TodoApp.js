@@ -2,6 +2,7 @@ import { todoReducer } from './todoReducer';
 import React, { useEffect, useReducer } from 'react'
 import './styles.css'
 import { useForm } from "../../hooks/useForm";
+import TodoList from './TodoList';
 
 const init = () => {
 
@@ -35,7 +36,7 @@ export const TodoApp = () => {
         dispatch(action);
     }
 
-    const handleToogle = (todoId) => {
+    const handleToggle = (todoId) => {
         dispatch({ type: 'toggle', payload: todoId })
     }
 
@@ -63,18 +64,8 @@ export const TodoApp = () => {
             <hr />
             <div className="row">
                 <div className="col-7">
-                    <ul className="list-group list-group-flush">
-                        {todos.map((todo, i) => (
-                            <li key={todo.id}
-                                className="list-group-item"
-                            >
-                                <p 
-                                className={`${ todo.done && 'complete'}`}
-                                onClick={() => handleToogle(todo.id)}>{i + 1}.{todo.desc}</p>
-                                <button onClick={() => handleDelete(todo.id)} className="btn btn-danger">Borrar</button>
-                            </li>
-                        ))}
-                    </ul>
+                    {/* TodoList, todos, handleDelete,HandleToggle */}
+                    <TodoList todos={todos} handleDelete={handleDelete} handleToggle={handleToggle}/>
                 </div>
 
                 <div className="col-5">
