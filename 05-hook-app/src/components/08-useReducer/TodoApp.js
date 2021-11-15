@@ -9,7 +9,7 @@ const init = () => {
     // return [{
     //     id: new Date().getTime(),
     //     desc: 'Aprender React',
-    //     donde: false
+    //     done: false
     // }]
 }
 
@@ -35,13 +35,17 @@ export const TodoApp = () => {
         dispatch(action);
     }
 
+    const handleToogle = (todoId) => {
+        dispatch({ type: 'toggle', payload: todoId })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const newTodo = {
             id: new Date().getTime(),
             desc: description,
-            donde: false
+            done: false
         }
 
         const action = {
@@ -64,7 +68,9 @@ export const TodoApp = () => {
                             <li key={todo.id}
                                 className="list-group-item"
                             >
-                                <p className="text-center">{i + 1}.{todo.desc}</p>
+                                <p 
+                                className={`${ todo.done && 'complete'}`}
+                                onClick={() => handleToogle(todo.id)}>{i + 1}.{todo.desc}</p>
                                 <button onClick={() => handleDelete(todo.id)} className="btn btn-danger">Borrar</button>
                             </li>
                         ))}
