@@ -13,8 +13,9 @@ import ReactDOM from 'react-dom';
 // import { Layout } from './components/05--useLayoutEffect/Layout';
 // import { Memorize } from './components/06-memos/Memorize';
 // import { Padre } from './components/07-tarea-memo/Padre';
-import { TodoApp } from './components/08-useReducer/TodoApp';
+// import { TodoApp } from './components/08-useReducer/TodoApp';
+import { MainApp } from './components/09-useContext/MainApp';
 
-ReactDOM.render(<TodoApp />,
+ReactDOM.render(<MainApp />,
     document.getElementById('root')
 );
