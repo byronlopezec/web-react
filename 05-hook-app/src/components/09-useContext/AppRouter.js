@@ -4,20 +4,26 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
+    Navigate
 } from "react-router-dom";
+
+
 import { AboutScreen } from './AboutScreen';
 import { LoginScreen } from './LoginScreen';
 import { HomeScreen } from './HomeScreen';
+import { NavBar } from './NavBar';
 
 export const AppRouter = () => {
     return (
         <Router>
             <div>
+                <NavBar />
                 <Routes>
+                    <Route path="/" element={<HomeScreen />}></Route>
                     <Route path="/about" element={<AboutScreen />}></Route>
                     <Route path="/login" element={<LoginScreen />}></Route>
-                    
-                    <Route path="/" element={<HomeScreen/>}></Route>
+                    {/* <Route component={HomeScreen} /> */}
+                    <Route path="*" element={<Navigate to ="/" />}/>
                 </Routes>
             </div>
         </Router>
