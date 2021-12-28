@@ -18,13 +18,15 @@ export const AppRouter = () => {
         <Router>
             <div>
                 <NavBar />
-                <Routes>
-                    <Route path="/" element={<HomeScreen />}></Route>
-                    <Route path="/about" element={<AboutScreen />}></Route>
-                    <Route path="/login" element={<LoginScreen />}></Route>
-                    {/* <Route component={HomeScreen} /> */}
-                    <Route path="*" element={<Navigate to ="/" />}/>
-                </Routes>
+                <div className='container'>
+                    <Routes>
+                        <Route path="/" element={<HomeScreen />}></Route>
+                        <Route path="/about" element={<AboutScreen />}></Route>
+                        <Route path="/login" element={<LoginScreen />}></Route>
+                        {/* <Route component={HomeScreen} /> */}
+                        <Route path="*" element={<Navigate to="/" />} />
+                    </Routes>
+                </div>
             </div>
         </Router>
     )
