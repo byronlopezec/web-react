@@ -1,12 +1,20 @@
+import { useMemo, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHerosById } from './../../selectors/getHerosById';
 
 export const HeroScreen = () => {
 
+    const [counter, setCounter] = useState(0);
+
     const navigate = useNavigate();
     // const params = useParams();
     const { heroeid } = useParams();
-    const hero = getHerosById(heroeid);
+    // Memorizar valores cuando los datos son muy grandes, para evitar volver a pedir valores
+    const hero = useMemo(() => getHerosById(heroeid), [heroeid]);
+
+
+    // const hero = getHerosById(heroeid);
+
     const { id, superhero, publisher, alter_ego, first_appearance, characters } = hero;
     const imagePath = `/assets/heroes/${hero.id}.jpg `
 
@@ -16,7 +24,8 @@ export const HeroScreen = () => {
     }
 
     const handleReturn = () => {
-        navigate(-1)
+        // navigate(-1)
+        setCounter(counter + 1)
     }
 
     return (
@@ -39,7 +48,7 @@ export const HeroScreen = () => {
 
                 <button className="btn btn-outline-info"
                     onClick={handleReturn}>
-                    Regresar
+                    Regresar {counter}
                 </button>
             </div>
         </div>
