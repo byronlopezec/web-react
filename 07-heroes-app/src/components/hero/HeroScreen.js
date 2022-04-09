@@ -4,12 +4,11 @@ import { getHerosById } from './../../selectors/getHerosById';
 
 export const HeroScreen = () => {
 
-    const [counter, setCounter] = useState(0);
-
     const navigate = useNavigate();
     // const params = useParams();
     const { heroeid } = useParams();
-    // Memorizar valores cuando los datos son muy grandes, para evitar volver a pedir valores
+    // Memorizar valores cuando los datos son muy grandes, para evitar volver a pedir valores,
+    // si heroeId cambia, se vuelve a llamar a la funcion getHerosById
     const hero = useMemo(() => getHerosById(heroeid), [heroeid]);
 
 
@@ -24,8 +23,7 @@ export const HeroScreen = () => {
     }
 
     const handleReturn = () => {
-        // navigate(-1)
-        setCounter(counter + 1)
+        navigate(-1)
     }
 
     return (
@@ -48,7 +46,7 @@ export const HeroScreen = () => {
 
                 <button className="btn btn-outline-info"
                     onClick={handleReturn}>
-                    Regresar {counter}
+                    Regresar
                 </button>
             </div>
         </div>
