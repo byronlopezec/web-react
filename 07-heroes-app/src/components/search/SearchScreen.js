@@ -15,7 +15,6 @@ export const SearchScreen = () => {
 
     const [values, handleInputChange] = useForm({ searchText: q, });
 
-
     const { searchText } = values;
     const heroesFiltered = useMemo(() => getHeroesByName(q), [q]);
 
