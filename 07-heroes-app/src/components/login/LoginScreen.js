@@ -16,10 +16,12 @@ export const LoginScreen = () => {
                 name: 'Byron López'
             }
         }
+
         dispatch(action)
 
         navigate('/marvel', { replace: true });
     }
+
     return (
         <div className="container mt-5">
             <h1>Login</h1>
