@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useForm } from './../../hooks/useForm';
 import validator from 'validator';
+import { useDispatch } from 'react-redux';
+import { removeError, setError } from '../../actions/ui';
 
 export const RegisterScreen = () => {
 
-    // {
-    //     name: 'Brandom',
-    //     email: 'brandom@gmail.com',
-    //     password: '123456',
-    //     password2: '123456'
-    // }
+    const dispatch = useDispatch();
 
     const [formValues, handleInputChange] = useForm({
         name: 'Brandom',
@@ -24,25 +21,31 @@ export const RegisterScreen = () => {
         e.preventDefault();
 
         if (isFormValid()) {
-            console.log('Form is valid');
-        } else {
-
         }
     }
 
     const isFormValid = () => {
 
         if (name.trim().length === 0) {
-
+            dispatch(setError('Name is required'));
             return false
-        } else if (validator.isEmail(email)) {
+        } else if (!validator.isEmail(email)) {
+            dispatch(setError('Email is not valid'));
             return false
-        } else if (password !== password2 && password.length < 5) {
-
+        } else if (password !== password2) {
+            dispatch(setError('Password not matched'));
+            return false;
+        } else if (password.length < 5) {
+            dispatch(setError('Password must be at least 6 characters'));
             return false;
         }
+
+        dispatch(removeError());
         return true
     }
+
+
+
     return (
         <>
             <h3 className="auth_title">Register</h3>
@@ -76,7 +79,7 @@ export const RegisterScreen = () => {
 
                 <input className="auth__input"
                     autoComplete='off'
-                    type="password2" placeholder="Confirm Password" name="password2"
+                    type="password" placeholder="Confirm Password" name="password2"
                     value={password2}
                     onChange={handleInputChange}
                 />
