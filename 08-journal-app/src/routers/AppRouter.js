@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthRouter } from './AuthRouter';
 import { JournalScreen } from './../components/journal/JournalScreen';
@@ -10,14 +10,29 @@ export const AppRouter = () => {
 
     const dispatch = useDispatch();
 
+    const [checking, setCheking] = useState(true);
+    const [isLogginIn, setIsLogginIn] = useState(false);
+
     useEffect(() => {
         onAuthStateChanged(getAuth(), (user) => {
 
             if (user?.uid) {
                 dispatch(login(user.uid, user.displayName));
+                setIsLogginIn(true);
+            } else {
+                setIsLogginIn(false);
             }
+
+            setCheking(false);
         })
-    }, [dispatch])
+    }, [dispatch, setCheking, isLogginIn])
+
+
+    if (checking) {
+        return <div>Checking...</div>
+    }
+
+
     return (
         <BrowserRouter>
             <Routes>
