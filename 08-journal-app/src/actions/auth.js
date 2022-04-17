@@ -1,13 +1,20 @@
 import { googleAuthProvider } from '../firebase/firebase-config';
 import { types } from './../types/types';
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import { finishLoading, startLoading } from './ui';
 
 
 export const startLoginEmailPassword = (email, password) => {
     return (dispatch) => {
-        setTimeout(() => {
-            dispatch(login(12343, 'Jennifer'))
-        }, 3500)
+        dispatch(startLoading())
+        signInWithEmailAndPassword(getAuth(), email, password)
+            .then(({ user }) => {
+                dispatch(login(user.uid, user.displayName));
+                dispatch(finishLoading())
+            }).catch(e => {
+                console.log(e)
+                dispatch(finishLoading())
+            })
     }
 }
 
@@ -45,6 +52,4 @@ export const login = (uid, displayName) => ({
         uid,
         displayName
     }
-}
-
-)
+})
