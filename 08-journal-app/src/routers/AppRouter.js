@@ -5,6 +5,8 @@ import { JournalScreen } from './../components/journal/JournalScreen';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
+import { PrivateRoute } from '../reducers/PrivateRoute';
+import { PublicRoute } from './../reducers/PublicRoute';
 
 export const AppRouter = () => {
 
@@ -36,8 +38,18 @@ export const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<JournalScreen />} />
-                <Route path="/auth/*" element={<AuthRouter />} />
+                <Route path="/" element={
+
+                    <PrivateRoute isAuthenticated={isLogginIn}>
+                        <JournalScreen />
+                    </PrivateRoute>
+
+                } />
+                <Route path="/auth/*" element={
+                    <PublicRoute isAuthenticated={isLogginIn}>
+                        <AuthRouter />
+                    </PublicRoute>
+                } />
                 <Route path="*" element={<Navigate to="/auth/login" replace />} />
             </Routes>
         </BrowserRouter>
