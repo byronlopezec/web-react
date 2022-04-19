@@ -6,8 +6,6 @@ export const JournalEntries = () => {
 
     const { notes } = useSelector(state => state.notes);
 
-    console.log(notes);
-
     return (
         <div className='journal__entries'>
             {
