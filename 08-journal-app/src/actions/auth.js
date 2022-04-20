@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, si
 import { finishLoading, startLoading } from './ui';
 import Swal from 'sweetalert2';
 import { authErrors } from './../firebase/firebase-config';
+import { noteLogout } from './notes';
 
 export const startLoginEmailPassword = (email, password) => {
     return async (dispatch) => {
@@ -63,6 +64,7 @@ export const startLogout = () => {
         const auth = getAuth();
         await auth.signOut()
         dispatch(logout())
+        dispatch(noteLogout())
     }
 }
 
