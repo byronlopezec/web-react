@@ -3,6 +3,7 @@ import { db } from "../firebase/firebase-config";
 import { types } from './../types/types';
 import { loadNotes } from './../helpers/loadNotes';
 import Swal from 'sweetalert2';
+import { fileUpload } from './../helpers/fileUpload';
 
 // name of cloudinary project https://cloudinary.com/console/c-95942e1d74be65be550abaccf054f6
 // react-journal-cloudinary
@@ -66,7 +67,6 @@ export const startSaveNote = (note) => {
 
         dispatch(refreshNote(note.id, noteToFireStore))
 
-        Swal.fire('Saved', 'Your note has been saved', 'success')
     }
 }
 
@@ -74,3 +74,31 @@ export const refreshNote = (id, note) => ({
     type: types.notesUpdate,
     payload: { id, note: { id, ...note } }
 })
+
+
+export const startUploadPicture = (file) => {
+
+    return async (dispatch, getState) => {
+
+        const { active: activateNote } = getState().notes;
+
+        var fileUrl;
+        Swal.fire({
+            title: 'Uploading...',
+            text: 'Please wait',
+            allowOutsideClick: false,
+            didOpen: async () => {
+                Swal.showLoading()
+                fileUrl = await fileUpload(file);
+                activateNote.url = fileUrl;
+                dispatch(startSaveNote(activateNote));
+                Swal.close()
+            }
+        }).then(result => {
+            Swal.fire('Saved', 'Your note has been saved', 'success')
+        })
+
+
+
+    }
+}
