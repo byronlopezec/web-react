@@ -4,6 +4,8 @@ import { types } from './../types/types';
 import { loadNotes } from './../helpers/loadNotes';
 import Swal from 'sweetalert2';
 
+// name of cloudinary project https://cloudinary.com/console/c-95942e1d74be65be550abaccf054f6
+// react-journal-cloudinary
 
 export const startNewNote = () => {
 
