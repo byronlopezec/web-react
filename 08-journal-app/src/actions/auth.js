@@ -6,10 +6,10 @@ import Swal from 'sweetalert2';
 import { authErrors } from './../firebase/firebase-config';
 
 export const startLoginEmailPassword = (email, password) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(startLoading())
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
                 dispatch(login(user.uid, user.displayName));
                 dispatch(finishLoading())
@@ -22,9 +22,9 @@ export const startLoginEmailPassword = (email, password) => {
 
 export const startRegisterEmailPassword = (name, email, password) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
         const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
+        await createUserWithEmailAndPassword(auth, email, password)
             .then(async ({ user }) => {
                 await updateProfile(user, { displayName: name })
 
@@ -37,10 +37,10 @@ export const startRegisterEmailPassword = (name, email, password) => {
 
 export const startGoogleLogin = () => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
 
         const auth = getAuth()
-        signInWithPopup(auth, googleAuthProvider)
+        await signInWithPopup(auth, googleAuthProvider)
             .then(({ user }) => {
                 dispatch(login(user.uid, user.displayName))
             }).catch(e => {
