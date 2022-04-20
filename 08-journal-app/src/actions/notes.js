@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { types } from './../types/types';
 import { loadNotes } from './../helpers/loadNotes';
@@ -102,3 +102,21 @@ export const startUploadPicture = (file) => {
 
     }
 }
+
+
+export const startDeleteNote = (id) => {
+
+    return async (dispatch, getState) => {
+
+        const uid = getState().auth.uid;
+
+        await deleteDoc(doc(db, `${uid}/journal/notes/${id}`));
+
+        dispatch(deleteNote(id))
+    }
+}
+
+export const deleteNote = (id) => ({
+    type: types.notesDelete,
+    payload: id
+})
