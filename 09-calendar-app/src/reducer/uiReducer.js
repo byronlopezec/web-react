@@ -16,7 +16,10 @@ export const uiReducer = (state = initialState, action) => {
             }
 
         case types.uiCloseModal:
-            return {}
+            return {
+                ...state,
+                modalOpen: false
+            }
 
         default:
             return state;

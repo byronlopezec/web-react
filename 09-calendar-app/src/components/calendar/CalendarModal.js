@@ -1,8 +1,11 @@
 import moment from 'moment';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiCloseModal } from '../actions/ui';
+import { eventAddNew, eventClearActiveEvent } from './../actions/events';
 
 
 const customStyles = {
@@ -20,21 +23,35 @@ Modal.setAppElement('#root');
 
 const now = moment().minutes(0).seconds(0).add(1, 'hours');
 const dateAfter = now.clone().add(1, 'hours');
+const initEvent = {
+    title: '',
+    notes: '',
+    start: now.toDate(),
+    end: dateAfter.toDate(),
+}
 
 export const CalendarModal = () => {
+
+    const dispatch = useDispatch();
+
+    const { modalOpen } = useSelector(state => state.ui);
+    const { activeEvent } = useSelector(state => state.calendar);
 
     const [dateStart, setDateStart] = useState(now.toDate());
     const [dateEnd, setDateEnd] = useState(dateAfter.toDate());
     const [titleValid, setTitleValid] = useState(true)
 
-    const [formValues, setFormValues] = useState({
-        title: 'Evento',
-        notes: '',
-        start: now.toDate(),
-        end: dateAfter.toDate(),
-    })
+    const [formValues, setFormValues] = useState(initEvent)
 
     const { notes, title, start, end } = formValues;
+
+    useEffect(() => {
+        if (activeEvent) {
+            setFormValues(activeEvent)
+        }
+    }, [activeEvent, setFormValues])
+
+
 
     const handleInputChange = (e) => {
         setFormValues({
@@ -44,7 +61,9 @@ export const CalendarModal = () => {
     }
 
     const closeModal = () => {
-        // TODO: cerrar modal
+        dispatch(uiCloseModal())
+        dispatch(eventClearActiveEvent())
+        setFormValues(initEvent)
     }
 
     const handleDateStartChange = (date) => {
@@ -78,20 +97,28 @@ export const CalendarModal = () => {
         }
 
         //TODO: realizar grabacion
+        dispatch(eventAddNew({
+            ...formValues,
+            id: new Date().getTime(),
+            user: {
+                _id: '123',
+                name: 'Ram López'
+            }
+        }))
+
         setTitleValid(true);
         closeModal();
 
     }
 
     return (
-        <Modal isOpen={true}
+        <Modal isOpen={modalOpen}
             // onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             closeTimeoutMS={200}
             style={customStyles}
             className="modal"
             overlayClassName="modal-fondo"
-
         >
             <h1> Nuevo evento </h1>
             <hr />
