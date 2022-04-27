@@ -1,4 +1,6 @@
+const bcrypt = require('bcryptjs/dist/bcrypt');
 const { response } = require('express');
+const { generarJWT } = require('../helpers/jwt');
 const Usuario = require('../models/Usuario');
 
 
@@ -16,12 +18,20 @@ const crearUsuario = async (req, res = response) => {
             });
         }
         usuario = new Usuario(req.body)
+
+        // Cifrar contraseña
+        const salt = bcrypt.genSaltSync();
+        usuario.password = bcrypt.hashSync(password, salt);
+
         await usuario.save()
+
+        const token = await generarJWT(usuario._id, usuario.name);
 
         res.status(201).json({
             ok: true,
             uid: usuario._id,
-            name: usuario.name
+            name: usuario.name,
+            token
         });
 
     } catch (err) {
@@ -37,14 +47,52 @@ const crearUsuario = async (req, res = response) => {
 }
 
 
-const loginUsuario = (req, res = response) => {
+const loginUsuario = async (req, res = response) => {
+
     const { email, password } = req.body;
 
-    res.status(200).json({
-        ok: true,
-        email,
-        password
-    });
+    try {
+        const usuario = await Usuario.findOne({ email });
+
+        if (!usuario) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'Usuario/Contrasenia no existe'
+            });
+        }
+
+        // confirmar dos contraseñas
+
+        const validPassword = bcrypt.compareSync(password, usuario.password);
+
+        if (!validPassword) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'Usuario/Contrasenia no existe'
+            });
+        }
+
+        const token = await generarJWT(usuario._id, usuario.name);
+        
+        res.status(200).json({
+            ok: true,
+            uid: usuario._id,
+            name: usuario.name,
+            token
+        });
+
+
+    } catch (err) {
+        res.status(400).json({
+            ok: false,
+            error: {
+                msg: 'Error al ingresar usuario',
+                err
+            }
+        });
+    };
+
+
 }
 
 const revalidarToken = (req, res = response) => {
