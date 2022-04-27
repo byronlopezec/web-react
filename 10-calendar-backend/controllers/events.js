@@ -35,7 +35,7 @@ const crearEvento = async (req, res = response) => {
 
 }
 
-const actualizarEvento = async(req, res = response) => {
+const actualizarEvento = async (req, res = response) => {
 
     const eventoId = req.params.id;
 
@@ -62,7 +62,7 @@ const actualizarEvento = async(req, res = response) => {
         }
 
         // new = true permite que devuelva el objeto actualizado
-        const eventoActualizado = await Evento.findByIdAndUpdate(eventoId, nuevoEvento,{new: true});
+        const eventoActualizado = await Evento.findByIdAndUpdate(eventoId, nuevoEvento, { new: true });
 
         res.json({
             ok: true,
@@ -80,12 +80,46 @@ const actualizarEvento = async(req, res = response) => {
 
 }
 
-const eliminarEvento = (req, res = response) => {
+const eliminarEvento = async (req, res = response) => {
 
-    res.json({
-        ok: true,
-        msg: "Evento eliminado"
-    });
+    try {
+
+        const eventoId = req.params.id;
+
+        const evento = await Evento.findById(eventoId);
+
+        if (!evento) {
+           return res.status(404).json({
+                ok: false,
+                msg: 'El evento no existe'
+            });
+        }
+
+        if (evento.user.toString() !== req.uid) {
+            return res.status(401).json({
+                ok: false,
+                msg: 'No tienes permiso para eliminar este evento'
+            });
+        }
+
+        const eventoEliminado = await Evento.findByIdAndDelete(eventoId);
+
+        res.json({
+            ok: true,
+            msg: 'Evento eliminado',
+            eventoEliminado
+        });
+
+
+    } catch (error) {
+        return res.status(500).json({
+            ok: false,
+            msg: 'Error inesperado',
+            error
+        });
+    }
+
+
 }
 
 module.exports = {
