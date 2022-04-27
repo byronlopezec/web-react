@@ -21,7 +21,8 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // Rutas
-app.use('/api/auth',require('./routes/auth'));
+app.use('/api/auth',require('./routes/auth.route'));
+app.use('/api/events',require('./routes/events.route'));
 
 // TODO: CRUD: eventos
 
