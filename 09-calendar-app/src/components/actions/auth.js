@@ -2,7 +2,6 @@ import { fetchConToken, fetchSinToken } from "../../helper/fetch"
 import { types } from './../../types/types';
 import Swal from 'sweetalert2';
 
-
 export const startLogin = (email, password) => {
     return async (dispatch) => {
 
@@ -57,9 +56,10 @@ export const startChecking = () => {
             dispatch(login(uid, name));
         } else {
             dispatch(checkingFinish());
-            Swal.fire("Error", body.msg, "error");
+            if (body?.token) {
+                Swal.fire("Error", body.msg, "error");
+            }
         }
-
     }
 }
 
@@ -75,4 +75,16 @@ const login = (uid, name) => ({
         uid,
         name
     }
+});
+
+export const startLogout = () => {
+
+    return (dispatch) => {
+        localStorage.clear();
+        dispatch(logout());
+    }
+}
+
+const logout = () => ({
+    type: types.authLogout
 });

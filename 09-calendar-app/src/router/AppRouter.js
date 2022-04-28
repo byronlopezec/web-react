@@ -3,12 +3,16 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CalendarScreen } from './../components/calendar/CalendarScreen';
 import { LoginScreen } from './../components/auth/LoginScreen';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { startChecking } from './../components/actions/auth';
+import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const AppRouter = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const { checking, uid } = useSelector(state => state.auth)
+    const uidExist = !!uid;
 
     useEffect(() => {
 
@@ -16,11 +20,23 @@ export const AppRouter = () => {
 
     }, [dispatch])
 
+    if (checking) {
+        return <div>Cargando...</div>
+    }
+
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<CalendarScreen />} />
-                <Route path="login" element={<LoginScreen />} />
+                <Route path="/" element={
+                    <PrivateRoute isAuthenticated={uidExist}>
+                        <CalendarScreen />
+                    </PrivateRoute>
+                } />
+                <Route path="login" element={
+                    <PublicRoute isAuthenticated={uidExist} >
+                        <LoginScreen />
+                    </PublicRoute>
+                } />
             </Routes>
         </BrowserRouter>
     )
