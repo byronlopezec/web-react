@@ -102,9 +102,17 @@ const revalidarToken = async (req, res = response) => {
     // generar nuevo token
     const token = await generarJWT(uid, name);
 
+    if (!token) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'No se pudo generar token'
+        });
+    }
+
     res.json({
         ok: true,
-        token
+        token,
+        uid, name
     });
 }
 

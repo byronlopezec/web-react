@@ -1,5 +1,6 @@
-import { fetchSinToken } from "../../helper/fetch"
+import { fetchConToken, fetchSinToken } from "../../helper/fetch"
 import { types } from './../../types/types';
+import Swal from 'sweetalert2';
 
 
 export const startLogin = (email, password) => {
@@ -13,12 +14,59 @@ export const startLogin = (email, password) => {
             localStorage.setItem('token-init-date', new Date().getTime());
 
             const { uid, name } = body;
-            console.log(body)
             dispatch(login(uid, name));
+        } else {
+            Swal.fire("Error", body.msg, "error");
         }
 
     }
 }
+
+
+export const startRegister = (name, email, password) => {
+    return async (dispatch) => {
+
+        const resp = await fetchSinToken("auth/new", { name, email, password }, "POST");
+        const body = await resp.json();
+
+        if (body.ok) {
+            localStorage.setItem("token", body.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
+
+            const { uid, name } = body;
+            dispatch(login(uid, name));
+        } else {
+            Swal.fire("Error", body.msg, "error");
+        }
+
+    }
+}
+
+export const startChecking = () => {
+
+    return async (dispatch) => {
+
+        const resp = await fetchConToken("auth/renew", {});
+        const body = await resp.json();
+
+        if (body.ok) {
+            localStorage.setItem("token", body.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
+
+            const { uid, name } = body;
+            dispatch(login(uid, name));
+        } else {
+            dispatch(checkingFinish());
+            Swal.fire("Error", body.msg, "error");
+        }
+
+    }
+}
+
+
+const checkingFinish = () => ({
+    type: types.authCheckingFinish
+});
 
 const login = (uid, name) => ({
 
