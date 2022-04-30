@@ -16,10 +16,11 @@
 
 [Calendar React App](https://calendar-buhobyte.herokuapp.com)
 
-![Login](https://github.com/Buhobyte/web-react/tree/master/docs/Calendar-heroku-app-login.png)
+# Login Page
+![Login](docs/Calendar-heroku-app-login.png)
 
-
-![Root](https://github.com/Buhobyte/web-react/tree/master/docs/Calendar-heroku-app.png)
+# Calendar Page
+![Root](docs/Calendar-heroku-app.png)
 
 
 ## Built With
