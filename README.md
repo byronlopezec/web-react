@@ -14,12 +14,14 @@
 
 ## Final Job
 
-[Calendar React App](https://calendar-buhobyte.herokuapp.com)
+### [Calendar React App](https://calendar-buhobyte.herokuapp.com)
 
-# Login Page
+
+
+## Login Page
 ![Login](docs/Calendar-heroku-app-login.png)
 
-# Calendar Page
+## Calendar Page
 ![Root](docs/Calendar-heroku-app.png)
 
 
