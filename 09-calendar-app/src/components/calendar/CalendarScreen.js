@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar } from './../ui/Navbar';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -10,7 +10,7 @@ import { CalendarEvent } from './CalendarEvent';
 import { CalendarModal } from './CalendarModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from './../actions/ui';
-import { eventSetActive } from '../actions/events';
+import { eventSetActive, eventStartLoading } from '../actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
 import { DeleteDeventFab } from '../ui/DeleteDeventFab';
 import { eventClearActiveEvent } from './../actions/events';
@@ -21,9 +21,12 @@ const localizer = momentLocalizer(moment);
 
 export const CalendarScreen = () => {
 
+    const dispatch = useDispatch();
     const { events, activeEvent } = useSelector(state => state.calendar);
 
-    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(eventStartLoading())
+    }, [dispatch])
 
     const [lastView, setLastView] = useState(
         localStorage.getItem('lastView') || 'month'
