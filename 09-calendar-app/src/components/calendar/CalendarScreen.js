@@ -13,7 +13,7 @@ import { uiOpenModal } from './../actions/ui';
 import { eventSetActive, eventStartLoading } from '../actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
 import { DeleteDeventFab } from '../ui/DeleteDeventFab';
-import { eventClearActiveEvent } from './../actions/events';
+import { eventClearActiveEvent, eventTentativeLoad } from './../actions/events';
 
 moment.updateLocale('es');
 
@@ -23,7 +23,7 @@ export const CalendarScreen = () => {
 
     const dispatch = useDispatch();
     const { events, activeEvent } = useSelector(state => state.calendar);
-    const {uid } = useSelector(state => state.auth);
+    const { uid } = useSelector(state => state.auth);
 
     useEffect(() => {
         dispatch(eventStartLoading())
@@ -47,8 +47,11 @@ export const CalendarScreen = () => {
     }
 
     const onSelectLot = (e) => {
-        onDoubleClick(e)
         dispatch(eventClearActiveEvent())
+        dispatch(eventTentativeLoad(e))
+        if (e.action === "doubleClick") {
+            dispatch(uiOpenModal())
+        }
 
     }
 

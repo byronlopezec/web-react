@@ -130,3 +130,8 @@ export const eventLoaded = (events) => ({
 export const eventLogout = () => ({
     type: types.eventLogout
 })
+
+export const eventTentativeLoad = (event) => ({
+    type: types.eventSetTentative,
+    payload: event
+})

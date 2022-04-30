@@ -3,13 +3,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { uiOpenModal } from './../actions/ui';
+import { eventClearActiveEvent } from './../actions/events';
 
 export const AddNewFab = () => {
 
     const dispatch = useDispatch()
 
     const handleOpenModal = () => {
-
+        dispatch(eventClearActiveEvent())
         dispatch(uiOpenModal())
     }
 

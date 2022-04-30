@@ -3,6 +3,7 @@ import { types } from './../types/types';
 const initialState = {
     events: [],
     activeEvent: null,
+    tentativeEvent: null
 }
 
 
@@ -23,7 +24,8 @@ export const calendarReducer = (state = initialState, action) => {
         case types.eventClearActiveEvent:
             return {
                 ...state,
-                activeEvent: null
+                activeEvent: null,
+                tentativeEvent: null
             }
 
         case types.eventUpdate:
@@ -47,6 +49,15 @@ export const calendarReducer = (state = initialState, action) => {
         case types.eventLogout:
             return {
                 ...initialState
+            }
+
+        case types.eventSetTentative:
+            return {
+                ...state,
+                tentativeEvent: {
+                    start: action.payload.start,
+                    end: action.payload.end,
+                }
             }
 
         default:

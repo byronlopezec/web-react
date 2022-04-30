@@ -35,10 +35,9 @@ export const CalendarModal = () => {
     const dispatch = useDispatch();
 
     const { modalOpen } = useSelector(state => state.ui);
-    const { activeEvent } = useSelector(state => state.calendar);
+    const { activeEvent, tentativeEvent } = useSelector(state => state.calendar);
 
-    const [dateStart, setDateStart] = useState(now.toDate());
-    const [dateEnd, setDateEnd] = useState(dateAfter.toDate());
+
     const [titleValid, setTitleValid] = useState(true)
 
     const [formValues, setFormValues] = useState(initEvent)
@@ -48,11 +47,14 @@ export const CalendarModal = () => {
     useEffect(() => {
         if (activeEvent) {
             setFormValues(activeEvent)
-        }
-        else {
+        } else if (tentativeEvent) {
+            const combine = {...initEvent,...tentativeEvent}
+            setFormValues(combine)
+        } else {
             setFormValues(initEvent)
         }
-    }, [activeEvent, setFormValues])
+
+    }, [activeEvent, setFormValues, tentativeEvent])
 
 
 
@@ -70,7 +72,7 @@ export const CalendarModal = () => {
     }
 
     const handleDateStartChange = (date) => {
-        setDateStart(date);
+
         setFormValues({
             ...formValues,
             start: date
@@ -78,7 +80,6 @@ export const CalendarModal = () => {
     }
 
     const handleDateEndChange = (date) => {
-        setDateEnd(date);
         setFormValues({
             ...formValues,
             end: date
@@ -133,7 +134,7 @@ export const CalendarModal = () => {
                         amPmAriaLabel='Select AM/PM'
                         className='form-control'
                         onChange={handleDateStartChange}
-                        value={dateStart} />
+                        value={start} />
                 </div>
 
                 <div className="form-group">
@@ -143,8 +144,8 @@ export const CalendarModal = () => {
                         amPmAriaLabel='Select AM/PM'
                         className='form-control'
                         onChange={handleDateEndChange}
-                        minDate={dateStart}
-                        value={dateEnd} />
+                        minDate={start}
+                        value={end} />
                 </div>
 
                 <hr />
