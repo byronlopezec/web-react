@@ -17,7 +17,6 @@ export const eventStartAddNew = (event) => {
 
 
             if (body.ok) {
-                console.log(body)
                 event.id = body.msg.id;
                 event.user = {
                     _id: uid,
@@ -52,7 +51,7 @@ export const eventClearActiveEvent = () => ({
 
 export const eventStartUpdate = (event) => {
 
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
 
         try {
             const resp = await fetchConToken(`events/${event.id}`, event, 'PUT');
@@ -61,8 +60,8 @@ export const eventStartUpdate = (event) => {
             console.log(body)
             if (body.ok) {
                 dispatch(eventUpdated(event));
-            }else{
-                Swal.fire('Error',body.msg, 'error');
+            } else {
+                Swal.fire('Error', body.msg, 'error');
             }
 
         } catch (error) {
@@ -78,9 +77,33 @@ const eventUpdated = (event) => ({
     payload: event
 })
 
-export const eventDelete = () => ({
+
+export const eventStartDelete = () => {
+
+    return async (dispatch, getState) => {
+        try {
+            const { activeEvent } = getState().calendar;
+            const resp = await fetchConToken(`events/${activeEvent.id}`, {}, 'DELETE');
+            const body = await resp.json();
+
+            if (body.ok) {
+                dispatch(eventDelete());
+                Swal.fire('Eliminado', body.msg, 'success');
+
+            } else {
+                Swal.fire('Error', body.msg, 'error');
+            }
+        } catch (error) {
+            Swal.fire('Error', error.message, 'error');
+        }
+    }
+}
+
+const eventDelete = () => ({
     type: types.eventDelete,
 })
+
+
 export const eventStartLoading = () => {
     return async (dispatch, getState) => {
 
@@ -102,4 +125,8 @@ export const eventLoaded = (events) => ({
 
     type: types.eventLoaded,
     payload: events
+})
+
+export const eventLogout = () => ({
+    type: types.eventLogout
 })

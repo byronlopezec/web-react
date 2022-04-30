@@ -11,8 +11,9 @@ export const Navbar = () => {
 
     const handleLogout = () => {
         dispatch(startLogout())
+        
     }
-    
+
     return (
 
         <div className='navbar navbar-dark bg-dark mb-4'>
