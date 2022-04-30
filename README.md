@@ -1,3 +1,2 @@
-# Hooks APP
+# React - Redux MERN Full
 
-Profundizando Hooks Generales

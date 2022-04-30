@@ -1,0 +1,13 @@
+version: "3.8"
+
+services: 
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/04-gif-expert-app
+    ports:
+      - 3000:3000
+    image: 04-gif-expert-app:v1
+    container_name: 04-gif-container
+    command: npm start
