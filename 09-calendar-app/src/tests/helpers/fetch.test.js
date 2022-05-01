@@ -25,6 +25,7 @@ describe("Pruebas en Helper", () => {
 
         expect(body.msg).toBe('El evento no existe');
 
+        
     })
 
 })
