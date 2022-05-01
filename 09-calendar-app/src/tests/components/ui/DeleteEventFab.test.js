@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import  {mount}  from 'enzyme';
 import { Provider } from 'react-redux';
 
 import configureStore from 'redux-mock-store';
@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 
 import '@testing-library/jest-dom'
 import { DeleteDeventFab } from '../../../components/ui/DeleteDeventFab';
-import { eventStartDelete } from './../../../components/actions/events';
+import { eventStartDelete } from '../../../components/actions/events';
 
 const mockStore = configureStore([thunk]);
 
