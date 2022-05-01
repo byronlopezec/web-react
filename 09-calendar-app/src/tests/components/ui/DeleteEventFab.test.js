@@ -6,11 +6,11 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import '@testing-library/jest-dom';
-
 import { DeleteEventFab } from '../../../components/ui/DeleteEventFab';
-import { eventStartDelete } from '../../../actions/events';
+import { eventStartDelete } from '../../../components/actions/events';
 
-jest.mock('../../../actions/events', () => ({
+
+jest.mock('./../../../components/actions/events', () => ({
     eventStartDelete: jest.fn()
 }))
 

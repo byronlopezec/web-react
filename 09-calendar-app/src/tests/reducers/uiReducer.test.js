@@ -1,6 +1,6 @@
-import { uiReducer } from '../../reducers/uiReducer';
-import { uiOpenModal, uiCloseModal } from '../../actions/ui';
 
+import { uiReducer } from './../../reducer/uiReducer';
+import { uiOpenModal,uiCloseModal } from './../../components/actions/ui';
 const initState = {
     modalOpen: false
 };

@@ -8,12 +8,12 @@ import { act } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 
-import { CalendarScreen } from '../../../components/calendar/CalendarScreen';
-import { messages } from '../../../helpers/calendar-messages-es';
 import { types } from '../../../types/types';
-import { eventSetActive } from '../../../actions/events';
+import { CalendarScreen } from './../../../components/calendar/CalendarScreen';
+import { messages } from './../../../helper/calendar-message';
+import { eventSetActive } from '../../../components/actions/events';
 
-jest.mock('../../../actions/events', () => ({
+jest.mock('../../../components/actions/events', () => ({
     eventSetActive: jest.fn(),
     eventStartLoading: jest.fn(),
 }))

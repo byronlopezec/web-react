@@ -1,6 +1,6 @@
-import { authReducer } from "../../reducers/authReducer";
-import { types } from "../../types/types";
 
+import { authReducer } from './../../reducer/authReducer';
+import { types } from './../../types/types';
 const initState = {
     checking: true,
     // uid: null,

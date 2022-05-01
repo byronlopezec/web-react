@@ -9,7 +9,7 @@ exports[`Pruebas en <DeleteEventFab /> debe de mostrarse correctamente 1`] = `
     className="fas fa-trash"
   />
   <span>
-     Borrar evento 
+    Borrar evento
   </span>
 </button>
 `;

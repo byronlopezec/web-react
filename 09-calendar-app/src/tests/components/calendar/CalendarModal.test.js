@@ -7,16 +7,17 @@ import thunk from 'redux-thunk';
 import moment from 'moment';
 
 import '@testing-library/jest-dom';
-import { CalendarModal } from '../../../components/calendar/CalendarModal';
-import { eventStartUpdate, eventClearActiveEvent, eventStartAddNew } from '../../../actions/events';
 import { act } from '@testing-library/react';
 import Swal from 'sweetalert2';
+import { CalendarModal } from './../../../components/calendar/CalendarModal';
+import { eventStartUpdate } from '../../../components/actions/events';
+import { eventClearActiveEvent, eventStartAddNew } from './../../../components/actions/events';
 
 jest.mock('sweetalert2', () => ({
     fire: jest.fn(),
 }))
 
-jest.mock('../../../actions/events', () => ({
+jest.mock('./../../../components/actions/events', () => ({
     eventStartUpdate: jest.fn(),
     eventClearActiveEvent: jest.fn(),
     eventStartAddNew: jest.fn()
@@ -160,7 +161,7 @@ describe('Pruebas en <CalendarModal />', () => {
         });
 
 
-        expect( Swal.fire ).toHaveBeenCalledWith("Error", "La fecha fin debe de ser mayor a la fecha de inicio", "error");
+        expect( Swal.fire ).toHaveBeenCalledWith("Error", "La fecha de inicio debe ser menor a la fecha de fin", "error");
 
     })
     

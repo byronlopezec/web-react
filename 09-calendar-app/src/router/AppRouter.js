@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CalendarScreen } from './../components/calendar/CalendarScreen';
 import { LoginScreen } from './../components/auth/LoginScreen';
 import { useDispatch, useSelector } from 'react-redux';
-import { startChecking } from './../components/actions/auth';
+import { startChecking } from '../components/actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 

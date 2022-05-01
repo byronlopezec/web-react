@@ -8,27 +8,27 @@ describe('Pruebas en Types', () => {
 
         expect( types ).toEqual({
 
-            uiOpenModal: '[ui] Open modal',
-            uiCloseModal: '[ui] Close modal',
+            uiOpenModal: '[UI] Open Modal',
+            uiCloseModal: '[UI] Close Modal',
         
-            
-            eventSetActive: '[event] Set Active',
-            eventLogout: '[event] Logout event',
-            
-            evetStartAddNew: '[event] Start add new',
-            eventAddNew: '[event] Add new',
-            eventClearActiveEvent: '[event] Clear active event',
-            eventUpdated: '[event] Event updated',
-            eventDeleted: '[event] Event deleted',
-            eventLoaded: '[event] Events loaded',
+            eventSetActive: '[Event] Set Active',
+            eventLogout: '[Event] Logout',
         
+            eventSetTentative: '[Event] Set Tentative',
+            eventStartAddNew: '[Event] Start Add New',
+            eventAddNew: '[Event] Add New',
+            eventClearActiveEvent: '[Event] Clear Active Event',
+            eventUpdate: '[Event] Update',
+            eventDelete: '[Event] Delete',
+            eventLoaded: '[Event] Loaded',
         
-            authCheckingFinish: '[auth] Finish checking login state',
-            authStartLogin: '[auth] Start login',
-            authLogin: '[auth] Login',
-            authStartRegister: '[auth] Start Register',
-            authStartStartTokenRenew: '[auth] Start token renew',
-            authLogout: '[auth] Logout',
+            authChecking: '[Auth] Checking login state',
+            authCheckingFinish: '[Auth] Checking login state finish',
+            authStartLogin: '[Auth] Start login',
+            authLogin: '[Auth] Login',
+            authStartRegister: '[Auth] Start register',
+            authStartTokenRenew: '[Auth] Start token renew',
+            authLogout: '[Auth] Logout',
         
         })
 

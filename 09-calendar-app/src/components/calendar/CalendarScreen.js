@@ -10,10 +10,12 @@ import { CalendarEvent } from './CalendarEvent';
 import { CalendarModal } from './CalendarModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiOpenModal } from './../actions/ui';
-import { eventSetActive, eventStartLoading } from '../actions/events';
+import {
+    eventSetActive, eventStartLoading,
+    eventClearActiveEvent, eventTentativeLoad
+} from '../../components/actions/events';
 import { AddNewFab } from '../ui/AddNewFab';
-import { DeleteDeventFab } from '../ui/DeleteDeventFab';
-import { eventClearActiveEvent, eventTentativeLoad } from './../actions/events';
+import { DeleteEventFab } from '../ui/DeleteEventFab';
 
 moment.updateLocale('es');
 
@@ -91,7 +93,7 @@ export const CalendarScreen = () => {
             />
 
             <AddNewFab />
-            {activeEvent && <DeleteDeventFab />}
+            {activeEvent && <DeleteEventFab />}
             <CalendarModal />
         </div>
     )
