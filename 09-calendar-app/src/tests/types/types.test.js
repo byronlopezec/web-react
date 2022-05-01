@@ -1,37 +1,40 @@
+import { types } from '../../types/types';
 
-import { types } from './../../types/types';
 
-describe('Pruebas en types', () => {
 
-    test('Types deben de ser iguales', () => {
+describe('Pruebas en Types', () => {
+    
+    test('los types deben de ser iguales', () => {
 
-        expect(types).toEqual(
-            {
+        expect( types ).toEqual({
 
-                uiOpenModal: '[UI] Open Modal',
-                uiCloseModal: '[UI] Close Modal',
+            uiOpenModal: '[ui] Open modal',
+            uiCloseModal: '[ui] Close modal',
+        
+            
+            eventSetActive: '[event] Set Active',
+            eventLogout: '[event] Logout event',
+            
+            evetStartAddNew: '[event] Start add new',
+            eventAddNew: '[event] Add new',
+            eventClearActiveEvent: '[event] Clear active event',
+            eventUpdated: '[event] Event updated',
+            eventDeleted: '[event] Event deleted',
+            eventLoaded: '[event] Events loaded',
+        
+        
+            authCheckingFinish: '[auth] Finish checking login state',
+            authStartLogin: '[auth] Start login',
+            authLogin: '[auth] Login',
+            authStartRegister: '[auth] Start Register',
+            authStartStartTokenRenew: '[auth] Start token renew',
+            authLogout: '[auth] Logout',
+        
+        })
 
-                eventSetActive: '[Event] Set Active',
-                eventLogout: '[Event] Logout',
-
-                eventSetTentative: '[Event] Set Tentative',
-                eventStartAddNew: '[Event] Start Add New',
-                eventAddNew: '[Event] Add New',
-                eventClearActiveEvent: '[Event] Clear Active Event',
-                eventUpdate: '[Event] Update',
-                eventDelete: '[Event] Delete',
-                eventLoaded: '[Event] Loaded',
-
-                authChecking: '[Auth] Checking login state',
-                authCheckingFinish: '[Auth] Checking login state finish',
-                authStartLogin: '[Auth] Start login',
-                authLogin: '[Auth] Login',
-                authStartRegister: '[Auth] Start register',
-                authStartTokenRenew: '[Auth] Start token renew',
-                authLogout: '[Auth] Logout',
-
-            }
-        );
-
+        
     })
+    
+
+
 })

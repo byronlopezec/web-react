@@ -1,50 +1,40 @@
+import { authReducer } from "../../reducers/authReducer";
+import { types } from "../../types/types";
 
-import { authReducer } from './../../reducer/authReducer';
-import { types } from './../../types/types';
-
-const initialState = {
+const initState = {
     checking: true,
-
+    // uid: null,
+    // name: null
 }
 
-describe('Pruebas AuthReducer', () => {
 
-    test('debería retornar el estado por defecto', () => {
+describe('Pruebas en authReducer.js', () => {
 
-        const state = authReducer(initialState, {});
-        expect(state).toEqual(initialState);
+    test('debe de retornar el estado por defecto', () => {
+        
+            const action = {};
+            const state = authReducer(initState, action);
+
+            expect( state ).toEqual( initState );
+
     });
 
-    test("debe iniciar el Login", () => {
-
+    test('debe de autenticar el usuario', () => {
+        
         const action = {
             type: types.authLogin,
             payload: {
-                uid: "123",
-                name: "Byron"
+                uid: '123',
+                name: 'Fernando'
             }
-        }
+        };
 
-        const state = authReducer(initialState, action);
-        expect(state).toEqual(
-            {
-                checking: false,
-                ...action.payload
-            }
-        )
+        const state = authReducer( initState, action );
+
+        expect(state).toEqual({ checking: false, uid: '123', name: 'Fernando' });
+
     })
-
-    test("debe iniciar el logout", () => {
-
-        const action = {
-            type: types.authLogout,
-            payload: {
-                checking: false
-            }
-        }
-
-        const state = authReducer(initialState, action);
-        expect(state).toEqual({...action.payload})
-    })
-
-});
+    
+    
+    
+})

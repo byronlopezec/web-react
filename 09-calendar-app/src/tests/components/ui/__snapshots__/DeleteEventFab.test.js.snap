@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <DeleteEventFav />. debe de motrarse correctamente 1`] = `
+exports[`Pruebas en <DeleteEventFab /> debe de mostrarse correctamente 1`] = `
 <button
   className="btn btn-danger fab-danger"
   onClick={[Function]}
@@ -9,7 +9,7 @@ exports[`Pruebas en <DeleteEventFav />. debe de motrarse correctamente 1`] = `
     className="fas fa-trash"
   />
   <span>
-    Borrar evento
+     Borrar evento 
   </span>
 </button>
 `;
