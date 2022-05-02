@@ -28,8 +28,6 @@ export const useFetch = (url) => {
                         loading: false,
                         error: null
                     })
-                } else {
-                    console.log("Se previno el setState")
                 }
             }).catch(error => {
 

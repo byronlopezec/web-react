@@ -33,7 +33,7 @@ describe('Pruebas en useFetch', () => {
 
     test('debe de manejar el error', async() => {
         
-        const { result, waitForNextUpdate } = renderHook( () => useFetch('https://reqres.in/apid/users?page=2') );
+        const { result, waitForNextUpdate } = renderHook( () => useFetch('https://reqres.in/api2/users?page=2') );
         await waitForNextUpdate();
 
         const { data, loading, error } = result.current;
