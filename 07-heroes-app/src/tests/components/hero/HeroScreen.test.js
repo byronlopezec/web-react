@@ -1,6 +1,6 @@
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { mount } from 'enzyme';
-import { HeroScreen } from '../../../components/hero/HeroScreen';
+import { HeroScreen } from './../../../components/hero/HeroScreen';
 
 
 const mockNavigate = jest.fn();
@@ -34,7 +34,7 @@ describe('Pruebas en <HeroScreen />', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/hero/marvel-spider']}>
                 <Routes>
-                    <Route path="/hero/:heroeId" element={<HeroScreen />} />
+                    <Route path="/hero/:heroid" element={<HeroScreen />} />
                     <Route path="/" element={ <h1>No Hero Page</h1> } />
                 </Routes>
             </MemoryRouter>
@@ -51,7 +51,7 @@ describe('Pruebas en <HeroScreen />', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/hero/marvel-spider']}>
                 <Routes>
-                    <Route path="/hero/:heroeId" element={<HeroScreen />} />
+                    <Route path="/hero/:heroid" element={<HeroScreen />} />
                 </Routes>
             </MemoryRouter>
         );

@@ -20,7 +20,7 @@ describe('Pruebas en <PrivateRoute />', () => {
         const contextValue = {
             user: {
                 logged: true,
-                name: 'Pepe'
+                name: 'Buhobyte'
             }
         };
 

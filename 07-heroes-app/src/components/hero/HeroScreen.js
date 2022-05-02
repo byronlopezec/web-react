@@ -7,23 +7,23 @@ export const HeroScreen = () => {
 
     const navigate = useNavigate();
     // const params = useParams();
-    const { heroeid } = useParams();
+    const { heroid } = useParams();
     // Memorizar valores cuando los datos son muy grandes, para evitar volver a pedir valores,
     // si heroeId cambia, se vuelve a llamar a la funcion getHerosById
-    const hero = useMemo(() => getHerosById(heroeid), [heroeid]);
+    const hero = useMemo(() => getHerosById(heroid), [heroid]);
 
     // const hero = getHerosById(heroeid);
-
-    const { superhero, publisher, alter_ego, first_appearance, characters } = hero;
-
+    
+    const handleReturn = () => {
+        navigate(-1)
+    }
+    
     if (!hero) {
         // es mejor usar el componente Navigate que la funcion navigate('/')
         return <Navigate to='/' />
     }
-
-    const handleReturn = () => {
-        navigate(-1)
-    }
+    
+    const { superhero, publisher, alter_ego, first_appearance, characters } = hero;
 
     return (
         <div className="row mt-5">
