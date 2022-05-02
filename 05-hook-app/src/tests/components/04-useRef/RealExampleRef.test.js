@@ -2,9 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { RealExampleRef } from '../../../components/04-useRef/RealExampleRef';
 
+let wrapper;
 describe('Pruebas en <RealExampleRef />', () => {
     
-    const wrapper = shallow( <RealExampleRef /> );
+    beforeEach( () => {
+        wrapper = shallow( <RealExampleRef /> );
+
+    } )
 
     test('debe mostrarse correctamente', () => {
         
@@ -12,7 +16,6 @@ describe('Pruebas en <RealExampleRef />', () => {
         expect( wrapper.find('MultipleCustomHooks').exists() ).toBe(false);
 
     });
-
 
     test('debe de mostrar el componente <MultipleCustomHooks />', () => {
         

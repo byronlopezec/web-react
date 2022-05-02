@@ -34,7 +34,7 @@ describe('Pruebas en useFetch', () => {
     test('debe de manejar el error', async() => {
         
         const { result, waitForNextUpdate } = renderHook( () => useFetch('https://reqres.in/api2/users?page=2') );
-        await waitForNextUpdate();
+        await waitForNextUpdate({timeout:5000});
 
         const { data, loading, error } = result.current;
 
