@@ -7,21 +7,19 @@ import { useCounter } from '../../../hooks/useCounter';
 jest.mock('../../../hooks/useFetch');
 jest.mock('../../../hooks/useCounter');
 
-
-
-
 describe('Pruebas en <MultipleCustomHooks />', () => {
 
-    useCounter.mockReturnValue({
-        counter: 10,
-        increment: () => {}
-    });
-
+    beforeEach( () => {
+        useCounter.mockReturnValue({
+            counter: 10,
+            increment: () => {}
+        })
+    })
     
     test('debe de mostrarse correctamente', () => {
 
         useFetch.mockReturnValue({
-            data: null,
+            data: '',
             loading: true,
             error: null
         });
@@ -35,8 +33,8 @@ describe('Pruebas en <MultipleCustomHooks />', () => {
         
         useFetch.mockReturnValue({
             data: [{
-                author: 'Fernando',
-                quote: 'Hola Mundo'
+                author: 'Byron',
+                quote: 'Haciendo pruebas'
             }],
             loading: false,
             error: null
@@ -45,8 +43,8 @@ describe('Pruebas en <MultipleCustomHooks />', () => {
         const wrapper = shallow( <MultipleCustomHooks /> );
 
         expect( wrapper.find('.alert').exists() ).toBe( false );
-        expect( wrapper.find('.mb-0').text().trim() ).toBe( 'Hola Mundo' );
-        expect( wrapper.find('footer').text().trim() ).toBe( 'Fernando' );
+        expect( wrapper.find('.mb-0').text().trim() ).toBe( 'Haciendo pruebas' );
+        expect( wrapper.find('footer').text().trim() ).toBe( 'Byron' );
 
     })
     

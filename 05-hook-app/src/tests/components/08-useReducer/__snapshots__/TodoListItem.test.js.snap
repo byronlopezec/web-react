@@ -10,7 +10,7 @@ exports[`Pruebas en <TodoListItem /> debe de mostrarse correctamente 1`] = `
     onClick={[Function]}
   >
     1
-    . 
+    .
     Aprender React
   </p>
   <button

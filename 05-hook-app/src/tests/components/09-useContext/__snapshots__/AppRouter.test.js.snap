@@ -3,47 +3,53 @@
 exports[`Pruebas en <AppRouter /> debe de mostrarse correctamente 1`] = `
 <div>
   <nav
-    className="navbar navbar-expand-sm navbar-dark bg-dark"
+    className="navbar navbar-expand-lg navbar-light bg-light"
   >
-    <a
-      className="navbar-brand"
-      href="/"
-      onClick={[Function]}
-    >
-       useContext 
-    </a>
     <div
-      className="collapse navbar-collapse"
-      id="navbarNavAltMarkup"
+      className="container-fluid"
     >
-      <div
-        className="navbar-nav"
+      <a
+        className="navbar-brand"
+        href="/"
+        onClick={[Function]}
       >
-        <a
-          aria-current="page"
-          className="nav-item nav-link active"
-          href="/"
-          onClick={[Function]}
-          style={Object {}}
+        Navbar
+      </a>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarNav"
+      >
+        <ul
+          className="navbar-nav"
         >
-           Home 
-        </a>
-        <a
-          aria-current={null}
-          className="nav-item nav-link"
-          href="/about"
-          onClick={[Function]}
-        >
-           About 
-        </a>
-        <a
-          aria-current={null}
-          className="nav-item nav-link"
-          href="/login"
-          onClick={[Function]}
-        >
-           Login
-        </a>
+          <a
+            activeclassname="active"
+            className="nav-item nav-link"
+            exact="true"
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+          <a
+            activeclassname="active"
+            className="nav-item nav-link"
+            exact="true"
+            href="/about"
+            onClick={[Function]}
+          >
+            About
+          </a>
+          <a
+            activeclassname="active"
+            className="nav-item nav-link"
+            exact="true"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </ul>
       </div>
     </div>
   </nav>
@@ -52,13 +58,15 @@ exports[`Pruebas en <AppRouter /> debe de mostrarse correctamente 1`] = `
   >
     <div>
       <h1>
-        HomeScreen
+        Home Screen
       </h1>
       <hr />
       <pre>
         {
-   "id": 1,
-   "name": "Fernando"
+   "user": {
+      "id": 1,
+      "name": "Fernando"
+   }
 }
       </pre>
     </div>

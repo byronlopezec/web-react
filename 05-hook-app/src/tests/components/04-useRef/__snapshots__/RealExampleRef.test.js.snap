@@ -3,14 +3,14 @@
 exports[`Pruebas en <RealExampleRef /> debe mostrarse correctamente 1`] = `
 <div>
   <h1>
-    RealExampleRef
+    Real Example Ref
   </h1>
   <hr />
   <button
-    className="btn btn-primary mt-5"
+    className="btn btn-primary"
     onClick={[Function]}
   >
-    Show/Hide
+    Show
   </button>
 </div>
 `;

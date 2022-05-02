@@ -3,7 +3,7 @@
 exports[`Pruebas en <TodoAdd /> debe de mostrarse correctamente 1`] = `
 <Fragment>
   <h4>
-    Agregar TODO
+    Agregar
   </h4>
   <hr />
   <form
@@ -19,7 +19,7 @@ exports[`Pruebas en <TodoAdd /> debe de mostrarse correctamente 1`] = `
       value=""
     />
     <button
-      className="btn btn-outline-primary mt-1 btn-block"
+      className="btn btn-outline-primary mt-1 w-100"
       type="submit"
     >
       Agregar

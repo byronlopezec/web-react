@@ -3,12 +3,13 @@
 exports[`Pruebas en <LoginScreen /> debe de mostrarse correctamente 1`] = `
 <div>
   <h1>
-    LoginScreen
+    Login Screen
   </h1>
   <hr />
   <button
     className="btn btn-primary"
     onClick={[Function]}
+    type="button"
   >
     Login
   </button>
