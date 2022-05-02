@@ -9,12 +9,12 @@ describe('Pruebas en <DashboardRoutes />', () => {
     const contextValue = {
         user: {
             logged: true,
-            name: 'Juanito'
+            name: 'Byron'
         }
     }
 
 
-    test('debe de mostrarse correctamente - Marvel ', () => {
+    test('debe de mostrarse correctamente - Marvel', () => {
     
         const wrapper = mount(
             <AuthContext.Provider value={contextValue}>
@@ -25,12 +25,12 @@ describe('Pruebas en <DashboardRoutes />', () => {
         );
 
         expect(wrapper).toMatchSnapshot();
-        expect(wrapper.find('.text-info').text().trim() ).toBe('Juanito');
-        expect( wrapper.find('h1').text().trim() ).toBe('MarvelScreen');
+        expect(wrapper.find('.text-info').text().trim() ).toBe('Byron');
+        expect( wrapper.find('h1').text().trim() ).toBe('Marvel');
 
     })
 
-    test('debe de mostrarse correctamente de DC ', () => {
+    test('debe de mostrarse correctamente de DC', () => {
     
         const wrapper = mount(
             <AuthContext.Provider value={contextValue}>
@@ -41,7 +41,7 @@ describe('Pruebas en <DashboardRoutes />', () => {
         );
 
         expect(wrapper).toMatchSnapshot();
-        expect( wrapper.find('h1').text().trim() ).toBe('DCScreen');
+        expect( wrapper.find('h1').text().trim() ).toBe('DC');
 
     })
     

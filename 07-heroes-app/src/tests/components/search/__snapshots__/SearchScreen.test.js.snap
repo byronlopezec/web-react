@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <SearchScreen /> debe de mostrar a Batman y el input con el valor del queryString 1`] = `
+exports[`Pruebas en <SearchScreen /> debe de mostrar a superman y el input con el valor del queryString 1`] = `
 Array [
   <h1>
-    Búsquedas
+     Búsquedas
   </h1>,
   <hr />,
   <div
@@ -24,9 +24,9 @@ Array [
           className="form-control"
           name="searchText"
           onChange={[Function]}
-          placeholder="Buscar un héroe"
+          placeholder="Buscar Héroe"
           type="text"
-          value="batman"
+          value="superman"
         />
         <button
           className="btn btn-outline-primary mt-1"
@@ -56,9 +56,9 @@ Array [
               className="col-4"
             >
               <img
-                alt="Batman"
+                alt="Superman"
                 className="card-img"
-                src="/assets/dc-batman.jpg"
+                src="dc-superman.jpg"
               />
             </div>
             <div
@@ -70,27 +70,28 @@ Array [
                 <h5
                   className="card-title"
                 >
-                  Batman
+                   
+                  Superman
                 </h5>
                 <p
                   className="card-text"
                 >
-                  Bruce Wayne
+                  Kal-El
                 </p>
-                <p
-                  className="card-text"
+                <div
+                  className="text-card"
                 >
-                  <small
+                  <p
                     className="text-muted"
                   >
-                    Detective Comics #27
-                  </small>
-                </p>
+                    Action Comics #1
+                  </p>
+                </div>
                 <a
-                  href="/hero/dc-batman"
+                  href="/hero/dc-superman"
                   onClick={[Function]}
                 >
-                  Más...
+                  Mas..
                 </a>
               </div>
             </div>
@@ -102,10 +103,10 @@ Array [
 ]
 `;
 
-exports[`Pruebas en <SearchScreen /> debe de mostrarse correctamente con valores por defecto  1`] = `
+exports[`Pruebas en <SearchScreen /> debe de mostrarse correctamente con valores por defecto 1`] = `
 Array [
   <h1>
-    Búsquedas
+     Búsquedas
   </h1>,
   <hr />,
   <div
@@ -126,7 +127,7 @@ Array [
           className="form-control"
           name="searchText"
           onChange={[Function]}
-          placeholder="Buscar un héroe"
+          placeholder="Buscar Héroe"
           type="text"
           value=""
         />
@@ -148,7 +149,7 @@ Array [
       <div
         className="alert alert-info"
       >
-         Buscar un héroe 
+        Buscar un héroe
       </div>
     </div>
   </div>,

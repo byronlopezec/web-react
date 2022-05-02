@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <DashboardRoutes /> debe de mostrarse correctamente - Marvel  1`] = `
+exports[`Pruebas en <DashboardRoutes /> debe de mostrarse correctamente - Marvel 1`] = `
 Array [
   <nav
     className="navbar navbar-expand-sm navbar-dark bg-dark"
@@ -19,21 +19,21 @@ Array [
         className="navbar-nav"
       >
         <a
-          className="nav-item nav-link "
+          className="nav-item nav-link active"
           href="/marvel"
           onClick={[Function]}
         >
           Marvel
         </a>
         <a
-          className="nav-item nav-link "
+          className="nav-item nav-link active"
           href="/dc"
           onClick={[Function]}
         >
           DC
         </a>
         <a
-          className="nav-item nav-link "
+          className="nav-item nav-link active"
           href="/search"
           onClick={[Function]}
         >
@@ -50,7 +50,7 @@ Array [
         <span
           className="nav-item nav-link text-info"
         >
-          Juanito
+          Byron
         </span>
         <button
           className="nav-item nav-link btn"
@@ -66,11 +66,10 @@ Array [
   >
     <div>
       <h1>
-        MarvelScreen
+        Marvel
       </h1>
-      <hr />
       <div
-        className="row rows-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn"
+        className="row row-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn"
       >
         <div
           className="col animate__animated animate__fadeIn"
@@ -87,7 +86,7 @@ Array [
                 <img
                   alt="Spider Man"
                   className="card-img"
-                  src="/assets/marvel-spider.jpg"
+                  src="marvel-spider.jpg"
                 />
               </div>
               <div
@@ -99,6 +98,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Spider Man
                   </h5>
                   <p
@@ -106,20 +106,20 @@ Array [
                   >
                     Peter Parker
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Amazing Fantasy #15
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-spider"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -141,7 +141,7 @@ Array [
                 <img
                   alt="Captain America"
                   className="card-img"
-                  src="/assets/marvel-captain.jpg"
+                  src="marvel-captain.jpg"
                 />
               </div>
               <div
@@ -153,6 +153,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Captain America
                   </h5>
                   <p
@@ -160,20 +161,20 @@ Array [
                   >
                     Steve Rogers
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Captain America Comics #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-captain"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -195,7 +196,7 @@ Array [
                 <img
                   alt="Iron Man"
                   className="card-img"
-                  src="/assets/marvel-iron.jpg"
+                  src="marvel-iron.jpg"
                 />
               </div>
               <div
@@ -207,6 +208,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Iron Man
                   </h5>
                   <p
@@ -214,20 +216,20 @@ Array [
                   >
                     Tony Stark
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Tales of Suspense #39
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-iron"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -249,7 +251,7 @@ Array [
                 <img
                   alt="Thor"
                   className="card-img"
-                  src="/assets/marvel-thor.jpg"
+                  src="marvel-thor.jpg"
                 />
               </div>
               <div
@@ -261,6 +263,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Thor
                   </h5>
                   <p
@@ -268,20 +271,20 @@ Array [
                   >
                     Thor Odinson
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Journey into Myster #83
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-thor"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -303,7 +306,7 @@ Array [
                 <img
                   alt="Hulk"
                   className="card-img"
-                  src="/assets/marvel-hulk.jpg"
+                  src="marvel-hulk.jpg"
                 />
               </div>
               <div
@@ -315,6 +318,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Hulk
                   </h5>
                   <p
@@ -322,20 +326,20 @@ Array [
                   >
                     Bruce Banner
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       The Incredible Hulk #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-hulk"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -357,7 +361,7 @@ Array [
                 <img
                   alt="Wolverine"
                   className="card-img"
-                  src="/assets/marvel-wolverine.jpg"
+                  src="marvel-wolverine.jpg"
                 />
               </div>
               <div
@@ -369,6 +373,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Wolverine
                   </h5>
                   <p
@@ -376,20 +381,20 @@ Array [
                   >
                     James Howlett
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       The Incredible Hulk #180
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-wolverine"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -411,7 +416,7 @@ Array [
                 <img
                   alt="Daredevil"
                   className="card-img"
-                  src="/assets/marvel-daredevil.jpg"
+                  src="marvel-daredevil.jpg"
                 />
               </div>
               <div
@@ -423,6 +428,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Daredevil
                   </h5>
                   <p
@@ -430,20 +436,20 @@ Array [
                   >
                     Matthew Michael Murdock
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Daredevil #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-daredevil"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -465,7 +471,7 @@ Array [
                 <img
                   alt="Hawkeye"
                   className="card-img"
-                  src="/assets/marvel-hawkeye.jpg"
+                  src="marvel-hawkeye.jpg"
                 />
               </div>
               <div
@@ -477,6 +483,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Hawkeye
                   </h5>
                   <p
@@ -484,20 +491,20 @@ Array [
                   >
                     Clinton Francis Barton
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Tales of Suspense #57
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-hawkeye"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -519,7 +526,7 @@ Array [
                 <img
                   alt="Cyclops"
                   className="card-img"
-                  src="/assets/marvel-cyclops.jpg"
+                  src="marvel-cyclops.jpg"
                 />
               </div>
               <div
@@ -531,6 +538,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Cyclops
                   </h5>
                   <p
@@ -538,20 +546,20 @@ Array [
                   >
                     Scott Summers
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       X-Men #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-cyclops"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -573,7 +581,7 @@ Array [
                 <img
                   alt="Silver Surfer"
                   className="card-img"
-                  src="/assets/marvel-silver.jpg"
+                  src="marvel-silver.jpg"
                 />
               </div>
               <div
@@ -585,6 +593,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Silver Surfer
                   </h5>
                   <p
@@ -592,20 +601,20 @@ Array [
                   >
                     Norrin Radd
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       The Fantastic Four #48
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/marvel-silver"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -618,7 +627,7 @@ Array [
 ]
 `;
 
-exports[`Pruebas en <DashboardRoutes /> debe de mostrarse correctamente de DC  1`] = `
+exports[`Pruebas en <DashboardRoutes /> debe de mostrarse correctamente de DC 1`] = `
 Array [
   <nav
     className="navbar navbar-expand-sm navbar-dark bg-dark"
@@ -637,7 +646,7 @@ Array [
         className="navbar-nav"
       >
         <a
-          className="nav-item nav-link "
+          className="nav-item nav-link active"
           href="/marvel"
           onClick={[Function]}
         >
@@ -652,7 +661,7 @@ Array [
           DC
         </a>
         <a
-          className="nav-item nav-link "
+          className="nav-item nav-link active"
           href="/search"
           onClick={[Function]}
         >
@@ -669,7 +678,7 @@ Array [
         <span
           className="nav-item nav-link text-info"
         >
-          Juanito
+          Byron
         </span>
         <button
           className="nav-item nav-link btn"
@@ -685,11 +694,10 @@ Array [
   >
     <div>
       <h1>
-        DCScreen
+        DC
       </h1>
-      <hr />
       <div
-        className="row rows-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn"
+        className="row row-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn"
       >
         <div
           className="col animate__animated animate__fadeIn"
@@ -706,7 +714,7 @@ Array [
                 <img
                   alt="Batman"
                   className="card-img"
-                  src="/assets/dc-batman.jpg"
+                  src="dc-batman.jpg"
                 />
               </div>
               <div
@@ -718,6 +726,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Batman
                   </h5>
                   <p
@@ -725,20 +734,20 @@ Array [
                   >
                     Bruce Wayne
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Detective Comics #27
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-batman"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -760,7 +769,7 @@ Array [
                 <img
                   alt="Superman"
                   className="card-img"
-                  src="/assets/dc-superman.jpg"
+                  src="dc-superman.jpg"
                 />
               </div>
               <div
@@ -772,6 +781,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Superman
                   </h5>
                   <p
@@ -779,20 +789,20 @@ Array [
                   >
                     Kal-El
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Action Comics #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-superman"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -814,7 +824,7 @@ Array [
                 <img
                   alt="Flash"
                   className="card-img"
-                  src="/assets/dc-flash.jpg"
+                  src="dc-flash.jpg"
                 />
               </div>
               <div
@@ -826,6 +836,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Flash
                   </h5>
                   <p
@@ -838,20 +849,20 @@ Array [
                   >
                     Jay Garrick, Barry Allen, Wally West, Bart Allen
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Flash Comics #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-flash"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -873,7 +884,7 @@ Array [
                 <img
                   alt="Green Lantern"
                   className="card-img"
-                  src="/assets/dc-green.jpg"
+                  src="dc-green.jpg"
                 />
               </div>
               <div
@@ -885,6 +896,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Green Lantern
                   </h5>
                   <p
@@ -897,20 +909,20 @@ Array [
                   >
                     Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       All-American Comics #16
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-green"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -932,7 +944,7 @@ Array [
                 <img
                   alt="Green Arrow"
                   className="card-img"
-                  src="/assets/dc-arrow.jpg"
+                  src="dc-arrow.jpg"
                 />
               </div>
               <div
@@ -944,6 +956,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Green Arrow
                   </h5>
                   <p
@@ -951,20 +964,20 @@ Array [
                   >
                     Oliver Queen
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       More Fun Comics #73
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-arrow"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -986,7 +999,7 @@ Array [
                 <img
                   alt="Wonder Woman"
                   className="card-img"
-                  src="/assets/dc-wonder.jpg"
+                  src="dc-wonder.jpg"
                 />
               </div>
               <div
@@ -998,6 +1011,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Wonder Woman
                   </h5>
                   <p
@@ -1005,20 +1019,20 @@ Array [
                   >
                     Princess Diana
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       All Star Comics #8
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-wonder"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -1040,7 +1054,7 @@ Array [
                 <img
                   alt="Martian Manhunter"
                   className="card-img"
-                  src="/assets/dc-martian.jpg"
+                  src="dc-martian.jpg"
                 />
               </div>
               <div
@@ -1052,6 +1066,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Martian Manhunter
                   </h5>
                   <p
@@ -1064,20 +1079,20 @@ Array [
                   >
                     Martian Manhunter
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Detective Comics #225
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-martian"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -1099,7 +1114,7 @@ Array [
                 <img
                   alt="Robin/Nightwing"
                   className="card-img"
-                  src="/assets/dc-robin.jpg"
+                  src="dc-robin.jpg"
                 />
               </div>
               <div
@@ -1111,6 +1126,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Robin/Nightwing
                   </h5>
                   <p
@@ -1118,20 +1134,20 @@ Array [
                   >
                     Dick Grayson
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Detective Comics #38
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-robin"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -1153,7 +1169,7 @@ Array [
                 <img
                   alt="Blue Beetle"
                   className="card-img"
-                  src="/assets/dc-blue.jpg"
+                  src="dc-blue.jpg"
                 />
               </div>
               <div
@@ -1165,6 +1181,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Blue Beetle
                   </h5>
                   <p
@@ -1177,20 +1194,20 @@ Array [
                   >
                     Dan Garret, Ted Kord, Jaime Reyes
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Mystery Men Comics #1
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-blue"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
@@ -1212,7 +1229,7 @@ Array [
                 <img
                   alt="Black Canary"
                   className="card-img"
-                  src="/assets/dc-black.jpg"
+                  src="dc-black.jpg"
                 />
               </div>
               <div
@@ -1224,6 +1241,7 @@ Array [
                   <h5
                     className="card-title"
                   >
+                     
                     Black Canary
                   </h5>
                   <p
@@ -1236,20 +1254,20 @@ Array [
                   >
                     Dinah Drake, Dinah Lance
                   </p>
-                  <p
-                    className="card-text"
+                  <div
+                    className="text-card"
                   >
-                    <small
+                    <p
                       className="text-muted"
                     >
                       Flash Comics #86
-                    </small>
-                  </p>
+                    </p>
+                  </div>
                   <a
                     href="/hero/dc-black"
                     onClick={[Function]}
                   >
-                    Más...
+                    Mas..
                   </a>
                 </div>
               </div>
