@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow, mount } from "enzyme";
 import { TodoApp } from "../../../components/08-useReducer/TodoApp"
-import { demoTodos } from '../../fixtures/demoTodos';
+
+import { demoTodos } from './../../fixtures/demoTodos';
 import { act } from '@testing-library/react';
-
-
 
 describe('Pruebas en <TodoApp />', () => {
 
@@ -12,7 +11,7 @@ describe('Pruebas en <TodoApp />', () => {
 
     Storage.prototype.setItem = jest.fn(()=> {});
 
-    test('debe de mostrarse correctamente', () => {
+    test.only('debe de mostrarse correctamente', () => {
         
         expect( wrapper ).toMatchSnapshot();
 
