@@ -22,19 +22,23 @@ export const useFetch = (url) => {
         fetch(url)
             .then(resp => resp.json())
             .then((data) => {
+                if (isMounted.current) {
+                    setState({
+                        data,
+                        loading: false,
+                        error: null
+                    })
+                } else {
+                    console.log("Se previno el setState")
+                }
+            }).catch(error => {
 
-                setTimeout(() => {
+                setState({
+                    data: '',
+                    loading: false,
+                    error: 'No se pudo cargar la info'
+                })
 
-                    if (isMounted.current) {
-                        setState({
-                            data,
-                            loading: false,
-                            error: null
-                        })
-                    }else{
-                        console.log("Se previno el setState")
-                    }
-                }, 4000);
             })
     }, [url])
 
