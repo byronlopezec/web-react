@@ -9,11 +9,11 @@ const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useNavigate: () => mockNavigate,
+    useNavigate: () => mockNavigate, // useNavigate is a hook
 }));
 
 describe('Pruebas en <LoginComponent />', () => {
-    
+
     const contextValue = {
         dispatch: jest.fn(),
         user: {
@@ -22,8 +22,8 @@ describe('Pruebas en <LoginComponent />', () => {
     }
 
     const wrapper = mount(
-        <AuthContext.Provider value={ contextValue }>
-            <MemoryRouter initialEntries={ ['/login'] }>
+        <AuthContext.Provider value={contextValue}>
+            <MemoryRouter initialEntries={['/login']}>
                 <Routes>
                     <Route path="/login" element={<LoginScreen />} />
                 </Routes>
@@ -33,28 +33,28 @@ describe('Pruebas en <LoginComponent />', () => {
 
 
     test('debe de hacer match con el snapshot', () => {
-        expect( wrapper ).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot();
     });
 
     test('debe de realizar el dispatch y la navegación', () => {
-        
+
         const handleClick = wrapper.find('button').prop('onClick');
         handleClick();
-        
-        expect( contextValue.dispatch ).toHaveBeenCalledWith({
+
+        expect(contextValue.dispatch).toHaveBeenCalledWith({
             type: types.login,
-            payload: { name: 'Fernando' }
+            payload: { name: 'Byron López' }
         });
 
-        expect( mockNavigate ).toHaveBeenCalledWith('/marvel', { replace: true });
+        expect(mockNavigate).toHaveBeenCalledWith('/marvel', { replace: true });
 
         localStorage.setItem('lastPath', '/dc')
 
         handleClick();
 
-        expect( mockNavigate ).toHaveBeenCalledWith('/dc', { replace: true });
+        expect(mockNavigate).toHaveBeenCalledWith('/dc', { replace: true });
     })
-    
-    
+
+
 
 })
