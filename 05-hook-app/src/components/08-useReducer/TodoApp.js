@@ -6,7 +6,7 @@ import { TodoAdd } from './TodoAdd';
 
 const init = () => {
 
-    return JSON.parse(localStorage.getItem('todos') || []);
+    return JSON.parse(localStorage.getItem('todos')) || [];
     // return [{
     //     id: new Date().getTime(),
     //     desc: 'Aprender React',

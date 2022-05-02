@@ -7,10 +7,11 @@ import { UserContext } from '../../../components/09-useContext/UserContext';
 describe('Pruebas en <HomeScreen />', () => {
 
     const user = {
-        name: 'Fernando',
-        email: 'fernando@gmail.com'
+        name: 'Byron',
+        email: 'byron@gmail.com'
     }
 
+    // Mount me vizualiza todo el componente cargado, el shallow solo renderiza el componente
     const wrapper = mount(
         <UserContext.Provider value={{
             user

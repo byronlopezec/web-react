@@ -7,7 +7,7 @@ export const LoginScreen = () => {
 
     const user = {
         id: 1234,
-        name: 'Franco'
+        name: 'Byron'
     }
 
     return (

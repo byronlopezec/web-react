@@ -65,7 +65,7 @@ exports[`Pruebas en <AppRouter /> debe de mostrarse correctamente 1`] = `
         {
    "user": {
       "id": 1,
-      "name": "Fernando"
+      "name": "Byron"
    }
 }
       </pre>

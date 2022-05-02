@@ -3,9 +3,9 @@
 exports[`Pruebas en <TodoApp /> debe de mostrarse correctamente 1`] = `
 <div>
   <h1>
-    TodoApp ( 
+    TodoApp (
     0
-     ) 
+    )
   </h1>
   <hr />
   <div
@@ -24,7 +24,7 @@ exports[`Pruebas en <TodoApp /> debe de mostrarse correctamente 1`] = `
       className="col-5"
     >
       <TodoAdd
-        handleAddTodo={[Function]}
+        handleTodoAdd={[Function]}
       />
     </div>
   </div>

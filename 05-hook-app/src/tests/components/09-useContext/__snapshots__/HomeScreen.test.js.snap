@@ -9,8 +9,8 @@ exports[`Pruebas en <HomeScreen /> debe de mostrarse correctamente 1`] = `
   <pre>
     {
    "user": {
-      "name": "Fernando",
-      "email": "fernando@gmail.com"
+      "name": "Byron",
+      "email": "byron@gmail.com"
    }
 }
   </pre>
